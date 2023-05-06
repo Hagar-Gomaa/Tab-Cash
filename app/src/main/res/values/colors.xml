@@ -6,6 +6,7 @@
     <color name="purple_500">#660099</color>
     <color name="gray_500">#969AA0</color>
     <color name="gray_strok">#D9D9D9</color>
+    <color name="purple_light">#D0B0DF</color>
 
 
 </resources>
