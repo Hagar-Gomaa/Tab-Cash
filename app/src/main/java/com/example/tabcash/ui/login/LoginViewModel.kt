@@ -5,7 +5,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tabcash.api.model.LoginResponse
-import com.example.tabcash.base.BaseViewModel
+import com.example.tabcash.ui.base.BaseViewModel
 import com.example.tabcash.isValidEmail
 import com.example.tabcash.repositoryContract.Repository
 import com.google.gson.Gson
@@ -18,7 +18,6 @@ import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import javax.inject.Inject
-
 @HiltViewModel
 class LoginViewModel @Inject constructor( val repository: Repository) :
     BaseViewModel<LoginNavigator>(){
@@ -27,7 +26,6 @@ class LoginViewModel @Inject constructor( val repository: Repository) :
     val emailError = ObservableField<String?>()
     val password = ObservableField<String>()
     val passwordError = ObservableField<String?>()
-
     fun login() {
         if (!validForm()) return
         navigator?.showLoading("Loading...")
@@ -67,8 +65,8 @@ class LoginViewModel @Inject constructor( val repository: Repository) :
 
         } else {
             isValid = true;
-            emailError.set(null)
-        }
+            emailError.set(null) }
+
         if (password.get().isNullOrBlank()) {
             isValid = false
             passwordError.set("please enter password")

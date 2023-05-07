@@ -8,14 +8,14 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/ic_vector_left"
-        android:layout_width="30dp"
-        android:layout_height="45dp"
+        android:id="@+id/ic_wallet"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="@dimen/_12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_cash_out" />
+        app:srcCompat="@drawable/ic_send_arrow" />
 
     <TextView
         android:id="@+id/text_amount"
@@ -23,19 +23,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/ic_vector_left"
+        app:layout_constraintStart_toEndOf="@id/ic_wallet"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:text="500 EGP" />
 
     <TextView
-        android:id="@+id/text_transfer_from_to"
+        android:id="@+id/text_amont_number"
         style="@style/style_text_item_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toTopOf="@id/tv_transation_id"
-        app:layout_constraintStart_toEndOf="@id/ic_vector_left"
+        app:layout_constraintStart_toEndOf="@id/ic_wallet"
         app:layout_constraintTop_toBottomOf="@id/text_amount"
         tools:text="person to person" />
 
@@ -46,10 +46,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:text="Transaction ID:"
-        android:textColor="@color/purple_light"
+        android:textColor="@color/purple_light_active"
         app:layout_constraintBottom_toTopOf="@id/view_line"
-        app:layout_constraintStart_toEndOf="@id/ic_vector_left"
-        app:layout_constraintTop_toBottomOf="@id/text_transfer_from_to" />
+        app:layout_constraintStart_toEndOf="@id/ic_wallet"
+        app:layout_constraintTop_toBottomOf="@id/text_amont_number" />
 
     <TextView
         android:id="@+id/text_transation_id"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="@+id/image_see_all"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/tv_transation_id"
-        app:layout_constraintTop_toBottomOf="@id/text_transfer_from_to"
+        app:layout_constraintTop_toBottomOf="@id/text_amont_number"
         app:layout_constraintVertical_bias="0.466" />
 
     <com.google.android.material.imageview.ShapeableImageView

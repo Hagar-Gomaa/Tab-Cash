@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TabCash" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TabCash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/purple_light</item>
+         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorSecondary">@color/orange_light</item>
  <item name="android:statusBarColor">#52246A</item>
     </style>
@@ -26,6 +26,7 @@
     <style name="TextInputEditText">
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:textSize">20sp</item>
+        <item name="backgroundTint">@color/white</item>
         <item name="android:paddingVertical" tools:targetApi="o">12dp</item>
     </style>
     <style name="Remember_Me_Style" parent="TextInputEditText">

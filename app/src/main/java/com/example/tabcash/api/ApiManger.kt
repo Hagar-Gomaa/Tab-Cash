@@ -24,7 +24,7 @@ class ApiManager {
                     .build()
 
                 retrofit = Retrofit.Builder()
-                    .baseUrl("https://tapcash.000webhostapp.com/api/tapcash/orange/v1")
+                    .baseUrl("https://tapcash.000webhostapp.com/api/tapcash/orange/v1/")
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()

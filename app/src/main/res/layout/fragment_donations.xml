@@ -18,30 +18,43 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-          <include layout="@layout/content_total_balance"/>
+<include layout="@layout/content_total_balance"/>
             <TextView
-                android:id="@+id/ic_cash_in"
+                android:id="@+id/text_resala"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/cash_in"
-                app:drawableStartCompat="@drawable/ic_money_recive" />
+                android:text="@string/resala"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/resala_logo" />
 
             <TextView
-                android:id="@+id/ic_cash_out"
+                android:id="@+id/text_alhela_el_ahmer"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:drawableStartCompat="@drawable/money_send"
-                android:text="@string/cash_out" />
+                android:gravity="center_vertical"
+                android:text="@string/elhelal"
+                app:drawableStartCompat="@drawable/ic_helal_ahmer_conversation" />
 
             <TextView
-                android:id="@+id/ic_donation"
+                android:id="@+id/text_57375"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/donations"
-                app:drawableStartCompat="@drawable/ic_donations__converted" />
+                android:text="@string/sapa_w_phamsen_hospital"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_seven_fivty_hospital" />
+
+            <TextView
+                android:id="@+id/text_500_500"
+                style="@style/style_item_transactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/five_handred_hospital"
+                android:gravity="center_vertical"
+                app:drawableStartCompat="@drawable/ic_five_handred_convirsation" />
+
         </LinearLayout>
     </FrameLayout>
 </layout>

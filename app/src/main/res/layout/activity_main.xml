@@ -16,7 +16,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#00000000">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -35,8 +36,9 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/content_main"
-           android:layout_marginTop="?actionBarSize"
+        <include
+            layout="@layout/content_main"
+            android:layout_marginTop="?actionBarSize"
             android:layout_marginBottom="82dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -44,42 +46,28 @@
         <!-- Bottom App Bar -->
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
-            style="@style/ThemeOverlay.Material3.BottomAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:backgroundTint="#EFE5F4"
-            app:fabAlignmentMode="center"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="0dp"
-            app:hideOnScroll="true">
+            app:fabCradleMargin="10dp"
+            app:fabCradleVerticalOffset="10dp">
 
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bottom_nav"
-                style="@style/Widget.Material3.BottomNavigationView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:itemRippleColor="@color/purple_500"
-                app:itemTextColor="@color/purple_500"
-                app:labelVisibilityMode="selected"
-                app:backgroundTint="#00000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:menu="@menu/bottom_nav_menu" />
+<!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--                android:id="@+id/bottom_nav"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:labelVisibilityMode="selected"-->
+<!--                app:backgroundTint="#00000000"-->
+<!--                app:menu="@menu/bottom_nav_menu" />-->
         </com.google.android.material.bottomappbar.BottomAppBar>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="55dp"
             android:backgroundTint="@color/purple_500"
-            android:contentDescription="TODO"
             android:src="@drawable/ic_transfer"
-            android:textAlignment="center"
-            app:="@id/bottom_app_bar"
-            app:borderWidth="0dp"
-            app:fabSize="normal"
             app:layout_anchor="@id/bottom_app_bar"
             app:layout_anchorGravity="bottom" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

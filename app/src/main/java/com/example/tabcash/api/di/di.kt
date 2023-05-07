@@ -41,7 +41,7 @@ class ApiModule {
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://tapcash.000webhostapp.com/api/tapcash/orange/v1")
+            .baseUrl("https://tapcash.000webhostapp.com/api/tapcash/orange/v1/")
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()

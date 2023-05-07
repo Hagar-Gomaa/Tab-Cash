@@ -9,5 +9,7 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="_18dp">18dp</dimen>
     <dimen name="_16dp">16dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+    <dimen name="_45dp">45dp</dimen>
 
 </resources>

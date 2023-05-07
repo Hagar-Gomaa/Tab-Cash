@@ -1,4 +1,4 @@
-package com.example.tabcash.base
+package com.example.tabcash.ui.base
 
 import android.app.ProgressDialog
 import android.os.Bundle
@@ -12,16 +12,15 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel<*>>():
     AppCompatActivity(), BaseNavigator {
 
     lateinit var viewBinding: VB
-    @Inject
-     protected lateinit var viewModel: VM
+//   lateinit var viewModel: VM
     abstract fun getLayoutId(): Int
-    abstract fun generateViewModel(): VM
+//    abstract fun generateViewModel(): VM
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = DataBindingUtil.setContentView(
             this, getLayoutId()
         )
-        viewModel = generateViewModel()
+
     }
 
     var progressDialog: ProgressDialog? = null

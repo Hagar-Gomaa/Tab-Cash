@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigation(navController: NavController) {
         // Set up ActionBar with NavController
         NavigationUI.setupActionBarWithNavController(this, navController)
-        binding.bottomNav.setupWithNavController(navController)
+//        binding.bottomNav.setupWithNavController(navController)
 
     }
 

@@ -8,12 +8,12 @@ import retrofit2.http.POST
 
 
 interface WebService{
-        //   https://tapcash.000webhostapp.com/api/tapcash/orange/v1
-        @POST("/login")
+        //   https://tapcash.000webhostapp.com/api/tapcash/orange/v1/
+        @POST("login")
         suspend fun login(
        ): LoginResponse
 
-    @POST("/register")
+    @POST("register")
     suspend fun register(
     ): RegisterResponse
 
