@@ -12,27 +12,30 @@ import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.tabcash.R
 import com.example.tabcash.databinding.ActivityMainBinding
+import com.example.tabcash.ui.base.BaseActivity
+import com.example.tabcash.ui.base.BaseViewModel
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel<*>>() {
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        //setContentView(binding.root)
-// Set up ActionBar
 //        setSupportActionBar(findViewById(R.id.toolbar))
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.navController
         setupNavigation(navController)
 
-        binding.fab.imageTintList=(ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
+        viewBinding.fab.imageTintList =
+            (ColorStateList.valueOf(ContextCompat.getColor(this, R.color.white)));
     }
 
 
     private fun setupNavigation(navController: NavController) {
-        // Set up ActionBar with NavController
 //        NavigationUI.setupActionBarWithNavController(this, navController)
-    binding.bottomNavigationView.setupWithNavController(navController)
+        viewBinding.bottomNavigationView.setupWithNavController(navController)
 
     }
 
@@ -46,11 +49,5 @@ class MainActivity : AppCompatActivity() {
 //override fun onResume() {
 //    super.onResume()
 //    setupNavigation()
-//}
-//
-//private fun setupNavigation() {
-//    val navController = findNavController(R.id.fragment_host)
-//    NavigationUI.setupActionBarWithNavController(this, navController)
-//    binding.bottomNav.setupWithNavController(navController)
 //}
 

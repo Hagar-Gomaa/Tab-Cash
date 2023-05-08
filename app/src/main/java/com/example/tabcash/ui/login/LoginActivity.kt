@@ -21,12 +21,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),Login
     override fun getLayoutId(): Int {
         return R.layout.activity_login
     }
-    private lateinit var binding: ActivityLoginBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+   override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(
-            this, getLayoutId())
-       binding.vm = viewModel
+       viewBinding.vm = viewModel
         viewModel.navigator=this
     }
 
