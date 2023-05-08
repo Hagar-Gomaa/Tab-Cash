@@ -1,8 +1,10 @@
 package com.example.tabcash.ui.login
 
 import android.content.Intent
+import android.database.DatabaseUtils
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.tabcash.R
 import com.example.tabcash.ui.base.BaseActivity
@@ -18,11 +20,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),Login
      val viewModel :LoginViewModel by viewModels()
     override fun getLayoutId(): Int {
         return R.layout.activity_login
-    }private lateinit var binding: ActivityLoginBinding
+    }
+    private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding = DataBindingUtil.setContentView(
+            this, getLayoutId())
        binding.vm = viewModel
         viewModel.navigator=this
     }

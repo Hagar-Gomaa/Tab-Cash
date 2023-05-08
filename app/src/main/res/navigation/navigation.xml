@@ -25,5 +25,5 @@
         android:name="com.example.tabcash.ui.main.home.KidsFragment"
         android:label="KidsFragment"
         tools:layout="@layout/fragment_kids"/>
-    \
+
 </navigation>

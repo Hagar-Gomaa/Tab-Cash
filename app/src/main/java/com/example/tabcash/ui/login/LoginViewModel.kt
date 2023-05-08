@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.tabcash.api.model.LoginRequestBody
 import com.example.tabcash.api.model.LoginResponse
 import com.example.tabcash.ui.base.BaseViewModel
 import com.example.tabcash.isValidEmail
@@ -36,7 +37,7 @@ class LoginViewModel @Inject constructor( val repository: Repository) :
     fun callRepository() {
         viewModelScope.launch {
             try {
-                val token = repository.login().authorisation?.token.toString()
+                val token = repository.login(LoginRequestBody(email.get(),password.get())).authorisation?.token.toString()
 //                newsList.value = news
                 Log.e("result",token)
 
