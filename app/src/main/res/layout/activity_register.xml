@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.example.tabcash.ui.login.RegisterViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,25 +38,25 @@
 
         <TextView
             android:id="@+id/text_sign_up"
+            style="@style/Remember_Me_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Remember_Me_Style"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/poppins_medium"
+            android:text="@string/sign_up"
             android:textSize="@dimen/_32sp"
-            android:layout_marginTop="34dp"
+            app:layout_constraintBottom_toTopOf="@id/text_wellcome_message"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/app_name"
-            app:layout_constraintBottom_toTopOf="@id/text_wellcome_message"
-            android:text="@string/sign_up" />
+            app:layout_constraintTop_toBottomOf="@id/app_name" />
 
         <TextView
             android:id="@+id/text_wellcome_message"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center"
-            android:layout_marginTop="8dp"
             android:text="@string/wellcome_message"
             android:textColor="@color/gray_500"
             android:textSize="@dimen/_16sp"
@@ -68,41 +71,44 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_12dp"
             android:fontFamily="@font/inter_bold"
+            android:text="@string/tab_cash"
             android:textColor="@color/purple_500"
             android:textSize="@dimen/_32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/vector_right"
-            android:text="@string/tab_cash" />
+            app:layout_constraintTop_toBottomOf="@id/vector_right" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_name"
             style="@style/TextInputLayout"
+            error="@{vm.nameError}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32dp"
             android:layout_marginTop="20dp"
-            android:hint="@string/email"
+            android:hint="@string/name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_wellcome_message">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_text_email"
+                android:id="@+id/edit_text_name_register"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="@={vm.name}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_mobile_number"
             style="@style/TextInputLayout"
+            error="@{vm.phoneError}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32dp"
-            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_8dp"
             android:hint="@string/mobile_number"
-            app:layout_constraintBottom_toTopOf="@id/input_layout_id_number"
+            app:layout_constraintBottom_toTopOf="@id/input_layout_email_register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_layout_name"
@@ -113,74 +119,75 @@
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={vm.phone}"
 
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_layout_id_number"
+            android:id="@+id/input_layout_email_register"
             style="@style/TextInputLayout"
+            error="@{vm.emailError}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32dp"
-            android:layout_marginTop="@dimen/_12dp"
-            android:hint="@string/id_number"
+            android:layout_marginTop="@dimen/_8dp"
+            android:hint="@string/email"
+            app:layout_constraintBottom_toTopOf="@id/input_layout_password_register"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_layout_mobile_number"
-            app:layout_constraintBottom_toTopOf="@id/input_layout_password_register">
+            app:layout_constraintTop_toBottomOf="@id/input_layout_mobile_number">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_id_number"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                />
+                android:text="@={vm.email}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_confirm_password"
             style="@style/TextInputLayout"
+            error="@{vm.confirmPasswordError}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32dp"
-            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_8dp"
             android:hint="@string/confirm_password"
+            app:layout_constraintBottom_toTopOf="@id/button_sign_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_layout_password_register"
-            app:layout_constraintBottom_toTopOf="@id/button_sign_up">
+            app:layout_constraintTop_toBottomOf="@id/input_layout_password_register">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_confirm_password"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                />
+                android:text="@={vm.confirmPassword}" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_layout_password_register"
             style="@style/TextInputLayout"
+            error="@{vm.passwordError}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_32dp"
-            android:layout_marginTop="@dimen/_12dp"
+            android:layout_marginTop="@dimen/_8dp"
             android:hint="@string/password"
+            app:layout_constraintBottom_toTopOf="@id/input_layout_confirm_password"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_layout_id_number"
-            app:layout_constraintBottom_toTopOf="@id/input_layout_confirm_password">
+            app:layout_constraintTop_toBottomOf="@id/input_layout_email_register">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_text_password_register"
                 style="@style/TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                />
+                android:text="@={vm.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -190,7 +197,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:paddingVertical="12dp"
+            android:onClick="@{()->vm.register()}"
+            android:paddingVertical="10dp"
             android:text="@string/sign_up"
             app:layout_constraintTop_toBottomOf="@id/input_layout_confirm_password" />
 
@@ -199,10 +207,10 @@
             style="@style/Remember_Me_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="1000dp"
             android:text="@string/already_have_acount"
             android:textColor="@color/gray_500"
             android:textSize="16sp"
-            android:layout_marginBottom="1000dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/login"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -215,10 +223,11 @@
             style="@style/Remember_Me_Style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:onClick="@{()->vm.goToLogin()}"
             android:text="@string/login"
             android:textColor="@color/purple_500"
             android:textSize="16sp"
-            android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/text_already_have_account"

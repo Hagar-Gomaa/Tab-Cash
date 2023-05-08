@@ -1,0 +1,4 @@
+
+interface OnDialogClickListener {
+    fun onClick()
+}

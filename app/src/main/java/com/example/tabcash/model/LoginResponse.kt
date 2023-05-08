@@ -1,4 +1,4 @@
-package com.example.tabcash.api.model
+package com.example.tabcash.model
 
 import com.google.gson.annotations.SerializedName
 

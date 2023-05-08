@@ -1,16 +1,16 @@
-package com.example.tabcash.api.model
+package com.example.tabcash.model
 
 import com.google.gson.annotations.SerializedName
 
 data class HistoryResponse(
 
-	@field:SerializedName("data")
+    @field:SerializedName("data")
 	val data: List<DataItem?>? = null,
 
-	@field:SerializedName("message")
+    @field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: Int? = null
 )
 

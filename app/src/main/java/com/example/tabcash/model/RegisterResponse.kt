@@ -1,19 +1,19 @@
-package com.example.tabcash.api.model
+package com.example.tabcash.model
 
 import com.google.gson.annotations.SerializedName
 
 data class RegisterResponse(
 
-	@field:SerializedName("authorisation")
+    @field:SerializedName("authorisation")
 	val authorisation: Authorisation? = null,
 
-	@field:SerializedName("message")
+    @field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("user")
+    @field:SerializedName("user")
 	val user: User? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: String? = null
 )
 

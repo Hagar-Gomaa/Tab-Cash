@@ -1,9 +1,15 @@
 package com.example.tabcash.repositoryContract
 
-import com.example.tabcash.api.model.LoginRequestBody
-import com.example.tabcash.api.model.LoginResponse
+import com.example.tabcash.model.LoginRequestBody
+import com.example.tabcash.model.LoginResponse
+import com.example.tabcash.model.RegisterBody
+import com.example.tabcash.model.RegisterResponse
+import com.example.tabcash.model.TransferBody
 
 
 interface Repository {
-    suspend fun login(loginRequestBody: LoginRequestBody):LoginResponse
+    suspend fun login(loginRequestBody: LoginRequestBody): LoginResponse
+    suspend fun register(registerBody: RegisterBody): RegisterResponse
+
+//    suspend fun transfer(transferBody: TransferBody):
 }
