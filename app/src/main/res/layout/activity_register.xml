@@ -190,7 +190,6 @@
                 android:text="@={vm.password}" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
         <Button
             android:id="@+id/button_sign_up"
             style="@style/Button_Style"
