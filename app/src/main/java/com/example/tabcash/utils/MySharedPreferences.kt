@@ -25,4 +25,13 @@ class MySharedPreferences(context: Context) {
     fun getBalance(): String? {
         return sharedPreferences.getString("balance", null)
     }
+    fun saveRememberme(rememberMe :Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putString("rememberMeValue", rememberMe.toString())
+        editor.apply()
+    }
+
+    fun getRememberme(): String? {
+        return sharedPreferences.getString("rememberMeValue", null)
+    }
 }

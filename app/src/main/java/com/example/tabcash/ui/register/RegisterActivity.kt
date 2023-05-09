@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.tabcash.R
 import com.example.tabcash.databinding.ActivityRegisterBinding
 import com.example.tabcash.ui.base.BaseActivity
@@ -18,7 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>(),
     RegisterNavigator {
     private val viewModel: RegisterViewModel by viewModels()
-   lateinit var mySharedPreferences : MySharedPreferences
+    private val mySharedPreferences : MySharedPreferences by lazy {
+        MySharedPreferences(this)
+    }
     lateinit var token:String
     override fun getLayoutId(): Int {
         return R.layout.activity_register
@@ -28,7 +31,6 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
         super.onCreate(savedInstanceState)
         viewBinding.vm = viewModel
         viewModel.navigator = this
-        mySharedPreferences = MySharedPreferences(this)
       viewModel.token?.let { mySharedPreferences.saveToken(it) }
     }
 
@@ -47,20 +49,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
     }
 
-
     private fun setTokenValue() {
         viewModel.token?.let { mySharedPreferences.saveToken(it) }
         token = mySharedPreferences.getToken()!!
         Log.e("token", token)
     }
 
-    //companion object{  private val mySharedPreferences = MySharedPreferences(this)
-//    lateinit var token:String
-//    fun getTokenFromRegister():String{
-//        token= mySharedPreferences.getToken()!!
-//        return token
-//    }
-//}
     override fun goToLogin() {
         val intent = Intent(this, LoginActivity::class.java)
     intent.putExtra("token",token)

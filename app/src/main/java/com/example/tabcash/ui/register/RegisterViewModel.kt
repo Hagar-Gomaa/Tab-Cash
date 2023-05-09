@@ -5,8 +5,8 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.viewModelScope
 import com.example.tabcash.isValidEmail
-import com.example.tabcash.model.RegisterBody
 import com.example.tabcash.model.RegisterErrorResponse
+import com.example.tabcash.model.RegisterRequstBody
 import com.example.tabcash.model.RegisterResponse
 import com.example.tabcash.repositoryContract.Repository
 import com.example.tabcash.ui.base.BaseViewModel
@@ -46,7 +46,7 @@ class RegisterViewModel @Inject constructor(private val repository: Repository) 
         viewModelScope.launch {
             try {
                 token = repository.register(
-                    RegisterBody(
+                    RegisterRequstBody(
                         name.get(),
                         email.get(),
                         password.get(),

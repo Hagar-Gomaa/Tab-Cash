@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class DepositeResponse(
 
 	@field:SerializedName("data")
-	val data: Data? = null,
+	val data: DepositeData? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
@@ -14,7 +14,7 @@ data class DepositeResponse(
 	val status: Int? = null
 )
 
-data class Data(
+data class DepositeData(
 
 	@field:SerializedName("balance")
 	val balance: String? = null,

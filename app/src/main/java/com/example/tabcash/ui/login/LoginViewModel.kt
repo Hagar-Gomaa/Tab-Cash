@@ -16,13 +16,18 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(val repository: Repository) :
     BaseViewModel<LoginNavigator>() {
 
-
+    var rememberMe =ObservableField<Boolean>()
+    var Login_Activity_rememberMe =ObservableField<Boolean>()
     var token: String? = null
     val email = ObservableField<String>()
     val emailError = ObservableField<String?>()
     val password = ObservableField<String>()
     val passwordError = ObservableField<String?>()
     val balance = ObservableField<String>()
+
+    init {
+        if (Login_Activity_rememberMe.get()==true) navigator?.goToHome()
+    }
     fun login() {
         if (!validForm()) return
         navigator?.showLoading("Loading...")
@@ -32,8 +37,6 @@ class LoginViewModel @Inject constructor(val repository: Repository) :
 
     private fun callRepository() {
         try {
-
-
         viewModelScope.launch {
 
             val token = repository.login(
@@ -44,6 +47,10 @@ class LoginViewModel @Inject constructor(val repository: Repository) :
             ).authorisation?.token.toString()
 //                newsList.value = news
             Log.e("result", token)
+
+            if (rememberMe.get() == true){
+                Login_Activity_rememberMe.set(rememberMe.get())
+            }
             navigator?.hideLoading()
             navigator?.goToHome()
         }

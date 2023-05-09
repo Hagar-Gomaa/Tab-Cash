@@ -18,20 +18,23 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), Logi
     override fun getLayoutId(): Int {
         return R.layout.activity_login
     }
-
+    private val mySharedPreferences : MySharedPreferences by lazy {
+        MySharedPreferences(this)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding.vm = viewModel
         viewModel.navigator = this
+        mySharedPreferences.saveRememberme(viewModel.Login_Activity_rememberMe.get()?:false)
+      if (mySharedPreferences.getRememberme().toString()=="true")viewModel.Login_Activity_rememberMe.set(true)
     }
 
-    override fun onStart() {
-        super.onStart()
-        val intent = intent
-        val tokenGetten = intent.getStringExtra("token")
-        if (tokenGetten != null) viewModel.token = tokenGetten
-        Log.e("ttt", tokenGetten.toString() + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        val intent = intent
+//        val tokenGetten = intent.getStringExtra("token")
+//        if (tokenGetten != null) viewModel.token = tokenGetten
+//    }
 
     override fun goToRegister() {
         val intent = Intent(this, RegisterActivity::class.java)

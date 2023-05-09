@@ -126,6 +126,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="30dp"
             android:gravity="start|center"
+            android:checked="@={vm.rememberMe}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/input_layout_password" />
 

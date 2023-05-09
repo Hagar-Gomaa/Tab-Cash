@@ -9,21 +9,75 @@
         android:id="@+id/homeFragment"
         android:name="com.example.tabcash.ui.main.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cardsFragment"
         android:name="com.example.tabcash.ui.main.home.CardsFragment"
         android:label="CardsFragment"
-        tools:layout="@layout/fragment_cards"/>
+        tools:layout="@layout/fragment_cards">
+        <action
+            android:id="@+id/action_cardsFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.tabcash.ui.main.history.HistoryFragment"
         android:label="HistoryFragment"
-        tools:layout="@layout/fragment_history"/>
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_historyFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kidsFragment"
         android:name="com.example.tabcash.ui.main.home.KidsFragment"
         android:label="KidsFragment"
-        tools:layout="@layout/fragment_kids"/>
+        tools:layout="@layout/fragment_kids">
+        <action
+            android:id="@+id/action_kidsFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.example.tabcash.ui.main.home.TransactionFragment"
+        android:label="TransactionFragment" >
+        <action
+            android:id="@+id/action_transactionFragment_to_cashOutFragment"
+            app:destination="@id/cashOutFragment" />
+        <action
+            android:id="@+id/action_transactionFragment_to_cashInFragment"
+            app:destination="@id/cashInFragment" />
+        <action
+            android:id="@+id/action_transactionFragment_to_donationsFragment"
+            app:destination="@id/donationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cashInFragment"
+        android:name="com.example.tabcash.ui.main.home.CashInFragment"
+        android:label="CashInFragment" >
+        <action
+            android:id="@+id/action_cashInFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cashOutFragment"
+        android:name="com.example.tabcash.ui.main.home.CashOutFragment"
+        android:label="CashOutFragment" >
+        <action
+            android:id="@+id/action_cashOutFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/donationsFragment"
+        android:name="com.example.tabcash.ui.main.home.DonationsFragment"
+        android:label="DonationsFragment" >
+        <action
+            android:id="@+id/action_donationsFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+    </fragment>
 
 </navigation>

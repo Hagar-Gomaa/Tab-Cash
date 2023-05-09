@@ -20,7 +20,7 @@
 
           <include layout="@layout/content_total_balance"/>
             <TextView
-                android:id="@+id/ic_cash_in"
+                android:id="@+id/text_cash_in"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
                 app:drawableStartCompat="@drawable/ic_money_recive" />
 
             <TextView
-                android:id="@+id/ic_cash_out"
+                android:id="@+id/text_cash_out"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
                 android:text="@string/cash_out" />
 
             <TextView
-                android:id="@+id/ic_donation"
+                android:id="@+id/text_donation"
                 style="@style/style_item_transactions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
