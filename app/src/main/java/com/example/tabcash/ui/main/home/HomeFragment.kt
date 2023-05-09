@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: CashInViewModel by viewModels()
      override fun setup() {
             viewModel.getbalnce(mySharedPreferences.getToken().toString())
-
+            mySharedPreferences.saveBalance(viewModel.balance.get().toString())
 
         }
     }
