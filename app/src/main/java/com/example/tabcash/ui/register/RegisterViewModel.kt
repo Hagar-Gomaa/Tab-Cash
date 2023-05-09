@@ -1,5 +1,6 @@
 package com.example.tabcash.ui.login
 
+import android.content.Context
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.viewModelScope
@@ -10,6 +11,7 @@ import com.example.tabcash.model.RegisterResponse
 import com.example.tabcash.repositoryContract.Repository
 import com.example.tabcash.ui.base.BaseViewModel
 import com.example.tabcash.ui.register.RegisterNavigator
+import com.example.tabcash.utils.MySharedPreferences
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,7 +19,7 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(val repository: Repository) :
+class RegisterViewModel @Inject constructor(private val repository: Repository) :
     BaseViewModel<RegisterNavigator>() {
 
     val name = ObservableField<String>()
@@ -31,7 +33,7 @@ class RegisterViewModel @Inject constructor(val repository: Repository) :
     val confirmPassword = ObservableField<String>()
     val confirmPasswordError = ObservableField<String?>()
     val error = ObservableField<String>()
-
+    var token:String?=null
 
     fun register() {
         if (!validForm()) return
@@ -43,7 +45,7 @@ class RegisterViewModel @Inject constructor(val repository: Repository) :
     private fun callRepository() {
         viewModelScope.launch {
             try {
-                val token = repository.register(
+                token = repository.register(
                     RegisterBody(
                         name.get(),
                         email.get(),
@@ -51,7 +53,7 @@ class RegisterViewModel @Inject constructor(val repository: Repository) :
                         phone.get()
                     )
                 ).authorisation?.token.toString()
-                Log.e("token", token)
+                Log.e("token", token!!)
                 navigator?.hideLoading()
                 navigator?.goToHome()
 

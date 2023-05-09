@@ -2,23 +2,35 @@ package com.example.tabcash.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.example.tabcash.R
 import com.example.tabcash.databinding.ActivityLoginBinding
 import com.example.tabcash.ui.base.BaseActivity
 import com.example.tabcash.ui.main.MainActivity
+import com.example.tabcash.utils.MySharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),LoginNavigator {
-     val viewModel :LoginViewModel by viewModels()
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(), LoginNavigator {
+    private val viewModel: LoginViewModel by viewModels()
+
     override fun getLayoutId(): Int {
         return R.layout.activity_login
     }
-   override fun onCreate(savedInstanceState: Bundle?) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       viewBinding.vm = viewModel
-        viewModel.navigator=this
+        viewBinding.vm = viewModel
+        viewModel.navigator = this
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val intent = intent
+        val tokenGetten = intent.getStringExtra("token")
+        if (tokenGetten != null) viewModel.token = tokenGetten
+        Log.e("ttt", tokenGetten.toString() + "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm")
     }
 
     override fun goToRegister() {
@@ -30,5 +42,5 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),Login
     override fun goToHome() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
-        }
+    }
 }
