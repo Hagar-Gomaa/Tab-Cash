@@ -2,7 +2,6 @@ package com.route.news_app_c37.api
 
 import android.util.Log
 import com.example.tabcash.api.WebService
-import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -42,7 +42,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/image_credite_card"
                 app:layout_constraintEnd_toEndOf="@id/image_credite_card"
                 app:layout_constraintStart_toEndOf="@id/text_user_id"
-                tools:text="03/25" />
+                android:text="03/25" />
 
             <TextView
                 android:id="@+id/text_user_id"
@@ -58,7 +58,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/text_user_name"
                 app:layout_constraintEnd_toStartOf="@id/text_expire_date"
                 app:layout_constraintStart_toStartOf="@id/image_credite_card"
-                tools:text="**** **** **** 0329" />
+                android:text="**** **** **** 0329" />
 
             <TextView
                 android:id="@+id/text_user_name"

@@ -4,13 +4,9 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.viewModelScope
 import com.example.tabcash.isValidEmail
-import com.example.tabcash.model.LoginErrorResponse
 import com.example.tabcash.model.LoginRequestBody
-import com.example.tabcash.model.LoginResponse
-import com.example.tabcash.model.RegisterErrorResponse
 import com.example.tabcash.repositoryContract.Repository
 import com.example.tabcash.ui.base.BaseViewModel
-import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -20,10 +16,13 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(val repository: Repository) :
     BaseViewModel<LoginNavigator>() {
 
+
+    var token: String? = null
     val email = ObservableField<String>()
     val emailError = ObservableField<String?>()
     val password = ObservableField<String>()
     val passwordError = ObservableField<String?>()
+    val balance = ObservableField<String>()
     fun login() {
         if (!validForm()) return
         navigator?.showLoading("Loading...")
@@ -32,23 +31,26 @@ class LoginViewModel @Inject constructor(val repository: Repository) :
     }
 
     private fun callRepository() {
-        viewModelScope.launch {
-            try {
-                val token = repository.login(
-                    LoginRequestBody(
-                        email.get(),
-                        password.get()
-                    )
-                ).authorisation?.token.toString()
-//                newsList.value = news
-                Log.e("result", token)
-                navigator?.hideLoading()
-                navigator?.goToHome()
+        try {
 
+
+        viewModelScope.launch {
+
+            val token = repository.login(
+                LoginRequestBody(
+                    email.get(),
+                    password.get()
+                )
+            ).authorisation?.token.toString()
+//                newsList.value = news
+            Log.e("result", token)
+            navigator?.hideLoading()
+            navigator?.goToHome()
+        }
             } catch (e: HttpException) {
 
                 navigator?.hideLoading()
-            navigator?.showMessage("Unauthorized")
+                navigator?.showMessage("Unauthorized")
 
             } catch (e: Exception) {
                 e.localizedMessage?.let { Log.e("erorr", it) }
@@ -56,7 +58,8 @@ class LoginViewModel @Inject constructor(val repository: Repository) :
                 e.localizedMessage?.let { navigator?.showMessage(it.toString()) }
 
             }
-        }
+
+
     }
 
     fun validForm(): Boolean {

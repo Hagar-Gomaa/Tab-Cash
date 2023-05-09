@@ -14,7 +14,9 @@ import com.example.tabcash.R
 import com.example.tabcash.databinding.ActivityMainBinding
 import com.example.tabcash.ui.base.BaseActivity
 import com.example.tabcash.ui.base.BaseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel<*>>() {
     override fun getLayoutId(): Int {
         return R.layout.activity_main

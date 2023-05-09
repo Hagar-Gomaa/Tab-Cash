@@ -1,5 +1,7 @@
 package com.example.tabcash.api
 
+import com.example.tabcash.model.BalanceResponse
+import com.example.tabcash.model.DepositeResponse
 import com.example.tabcash.model.HistoryResponse
 import com.example.tabcash.model.LoginRequestBody
 import com.example.tabcash.model.LoginResponse
@@ -7,6 +9,7 @@ import com.example.tabcash.model.RegisterBody
 import com.example.tabcash.model.RegisterResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 
@@ -18,9 +21,18 @@ interface WebService{
     @POST("register")
     suspend fun register(@Body registerBody: RegisterBody): RegisterResponse
 
-    @GET("/transcations")
-    suspend fun getHistory(
+    @GET("transcations")
+    suspend fun getHistory(@Header("Authorization") token: String
     ): HistoryResponse
 
+    @GET("balance")
+    suspend fun getBalance(@Header("Authorization") token: String)
+    : BalanceResponse
+
+    @POST("deposit")
+    suspend fun deposit(
+        @Header("Authorization") token: String,
+        @Body amount: String
+    ): DepositeResponse
 
 }

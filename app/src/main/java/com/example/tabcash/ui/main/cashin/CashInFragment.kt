@@ -5,18 +5,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.herohub.ui.base.BaseFragment
 import com.example.tabcash.R
+import com.example.tabcash.databinding.FragmentCashInBinding
+import com.example.tabcash.databinding.FragmentHistoryBinding
+import com.example.tabcash.ui.main.cashin.CashInViewModel
+import com.example.tabcash.ui.main.history.HistoryViewModel
+import com.example.tabcash.utils.MySharedPreferences
 
 
-class CashInFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cash_in, container, false)
+class CashInFragment : BaseFragment<FragmentCashInBinding>() {
+    override val TAG: String
+    get() ="HomeFragment"
+    override val layoutIdFragment: Int
+    get() = R.layout.fragment_cash_in
+    private val mySharedPreferences : MySharedPreferences by lazy {
+        MySharedPreferences(requireContext())
     }
 
+    private val viewModel: CashInViewModel by viewModels()
+    var history :String?=null
+    override fun setup() {
+        viewModel.getbalnce(mySharedPreferences.getToken().toString())
 
+
+    }
 }
+
+//log(mySharedPreferences.getToken().toString())
+//viewModel.history.observe(viewLifecycleOwner) { respose ->
+//    history = respose.data?.toString()?:"empety"
+//    log(history?:"")
+//}
