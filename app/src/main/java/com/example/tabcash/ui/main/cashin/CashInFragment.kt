@@ -11,7 +11,6 @@ import com.example.tabcash.R
 import com.example.tabcash.databinding.FragmentCashInBinding
 import com.example.tabcash.databinding.FragmentHistoryBinding
 import com.example.tabcash.ui.main.cashin.CashInViewModel
-import com.example.tabcash.ui.main.history.HistoryViewModel
 import com.example.tabcash.utils.MySharedPreferences
 
 
@@ -28,8 +27,6 @@ class CashInFragment : BaseFragment<FragmentCashInBinding>() {
     var history :String?=null
     override fun setup() {
         viewModel.getbalnce(mySharedPreferences.getToken().toString())
-
-
     }
 }
 
