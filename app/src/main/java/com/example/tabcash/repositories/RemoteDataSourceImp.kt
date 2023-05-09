@@ -6,10 +6,8 @@ import com.example.tabcash.model.DepositeResponse
 import com.example.tabcash.model.HistoryResponse
 import com.example.tabcash.model.LoginRequestBody
 import com.example.tabcash.model.LoginResponse
-import com.example.tabcash.model.RegisterRequstBody
+import com.example.tabcash.model.RegisterBody
 import com.example.tabcash.model.RegisterResponse
-import com.example.tabcash.model.TransferRequestBody
-import com.example.tabcash.model.TransferResponse
 import com.example.tabcash.repositoryContract.RemoteDataSource
 import javax.inject.Inject
 
@@ -19,7 +17,7 @@ class RemoteDataSourceImp @Inject constructor(val webService: WebService) :Remot
        return webService.login(loginRequestBody)
    }
 
-    override suspend fun register(registerBody: RegisterRequstBody): RegisterResponse {
+    override suspend fun register(registerBody: RegisterBody): RegisterResponse {
         return webService.register(registerBody)    }
 
     override suspend fun getBalance(accessToken: String): BalanceResponse {
@@ -28,10 +26,8 @@ class RemoteDataSourceImp @Inject constructor(val webService: WebService) :Remot
     override suspend fun getHistory(ccessToken: String): HistoryResponse {
         return webService.getHistory("Bearer $ccessToken")
     }
-    override suspend fun deposite(accessToken: String, amount: Int): DepositeResponse {
-        return webService.deposit("Bearer $accessToken",amount)
+    override suspend fun deposite(accessToken: String, amount: String): DepositeResponse {
+        return webService.deposit(accessToken,amount)
     }
-    override suspend fun transfer(accessToken: String,transferRequestBody: TransferRequestBody): TransferResponse {
-        return webService.transfer("Bearer $accessToken",transferRequestBody)
-    }
+
 }

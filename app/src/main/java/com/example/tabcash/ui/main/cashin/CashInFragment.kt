@@ -1,42 +1,35 @@
 package com.example.tabcash.ui.main.home
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.herohub.ui.base.BaseFragment
 import com.example.tabcash.R
 import com.example.tabcash.databinding.FragmentCashInBinding
-import com.example.tabcash.naviagte
-import com.example.tabcash.ui.main.cashin.CashInNavigator
+import com.example.tabcash.databinding.FragmentHistoryBinding
 import com.example.tabcash.ui.main.cashin.CashInViewModel
+import com.example.tabcash.ui.main.history.HistoryViewModel
 import com.example.tabcash.utils.MySharedPreferences
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
-class CashInFragment : BaseFragment<FragmentCashInBinding>(), CashInNavigator {
+
+class CashInFragment : BaseFragment<FragmentCashInBinding>() {
     override val TAG: String
-        get() = "HomeFragment"
+    get() ="HomeFragment"
     override val layoutIdFragment: Int
-        get() = R.layout.fragment_cash_in
-    private val mySharedPreferences: MySharedPreferences by lazy {
+    get() = R.layout.fragment_cash_in
+    private val mySharedPreferences : MySharedPreferences by lazy {
         MySharedPreferences(requireContext())
     }
+
     private val viewModel: CashInViewModel by viewModels()
-
+    var history :String?=null
     override fun setup() {
-        val token =mySharedPreferences.getToken()
-        binding.vm=viewModel
-        viewModel.getbalnce(token)
-        val balance =viewModel.balance.get().toString()
+        viewModel.getbalnce(mySharedPreferences.getToken().toString())
 
-        binding.layoutBalance.textAmontNumber.text=balance
-        mySharedPreferences.saveBalance(balance)
-        binding.buttonSend.setOnClickListener{
-            val amount =binding.editTextAmount.text.toString()
-            viewModel.deposite(token,900)
-           log(balance.toString())
-        }
-    }
-    override fun goToTransactions() {
-        naviagte(requireView(), R.id.action_cashInFragment_to_transactionFragment)
+
     }
 }
 

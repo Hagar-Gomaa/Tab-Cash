@@ -5,10 +5,8 @@ import com.example.tabcash.model.DepositeResponse
 import com.example.tabcash.model.HistoryResponse
 import com.example.tabcash.model.LoginRequestBody
 import com.example.tabcash.model.LoginResponse
-import com.example.tabcash.model.RegisterRequstBody
+import com.example.tabcash.model.RegisterBody
 import com.example.tabcash.model.RegisterResponse
-import com.example.tabcash.model.TransferRequestBody
-import com.example.tabcash.model.TransferResponse
 import com.example.tabcash.repositoryContract.RemoteDataSource
 import com.example.tabcash.repositoryContract.Repository
 import javax.inject.Inject
@@ -19,7 +17,7 @@ class RepositoryImp @Inject constructor(val remoteDataSource: RemoteDataSource):
         return remoteDataSource.login(loginRequestBody)
     }
 
-    override suspend fun register(registerBody: RegisterRequstBody): RegisterResponse {
+    override suspend fun register(registerBody: RegisterBody): RegisterResponse {
         return remoteDataSource.register(registerBody)
     }
 
@@ -30,11 +28,7 @@ class RepositoryImp @Inject constructor(val remoteDataSource: RemoteDataSource):
         return remoteDataSource.getHistory("Bearer $accessToken")
     }
 
-    override suspend fun deposite(accessToken: String, amount: Int): DepositeResponse {
+    override suspend fun deposite(accessToken: String, amount: String): DepositeResponse {
         return remoteDataSource.deposite(accessToken,amount)
-    }
-
-    override suspend fun transfer(accessToken: String,transferRequestBody: TransferRequestBody): TransferResponse {
-        return remoteDataSource.transfer("Bearer $accessToken",transferRequestBody)
     }
 }
