@@ -26,12 +26,12 @@ class CashInViewModel @Inject constructor(val repository: Repository) :
     private var cashInNavigator: CashInNavigator? = null
     fun getbalnce(token: String?) {
 
-        if (token != null) {
             viewModelScope.launch {
                 try {
-                    balance.set(token.let { repository.getBalance(it).data?.balance + " EGP" })
-                    Log.e("balance", balance.get().toString())
+                    balance.set(token.let { repository.getBalance(token!!).data?.balance } ?: "")
+//                Log.e("token", token.toString())
 
+                    Log.e("balanceeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", balance.get().toString())
                 } catch (e: HttpException) {
 
                     navigator?.hideLoading()
@@ -43,7 +43,7 @@ class CashInViewModel @Inject constructor(val repository: Repository) :
                     e.localizedMessage?.let { navigator?.showMessage(it.toString()) }
 
                 }
-            }
+
         }
     }
 
@@ -52,7 +52,7 @@ class CashInViewModel @Inject constructor(val repository: Repository) :
         if (token != null) {
             viewModelScope.launch {
                 try {
-                    val response =  repository.deposite(token, amount)
+                    val response = repository.deposite(token, amount)
                     navigator?.hideLoading()
                     navigator?.showMessage("Money has transfered successfully")
                     balance.set(response.data?.balance)
@@ -84,6 +84,7 @@ class CashInViewModel @Inject constructor(val repository: Repository) :
         return isValid
     }
 }
+
 interface CashInNavigator {
     fun goToTransactions()
 }

@@ -27,7 +27,7 @@ class RemoteDataSourceImp @Inject constructor(val webService: WebService) :Remot
         return webService.getHistory("Bearer $ccessToken")
     }
     override suspend fun deposite(accessToken: String, amount: Int): DepositeResponse {
-        return webService.deposit(accessToken,amount)
+        return webService.deposit("Bearer $accessToken",amount)
     }
 
 }
