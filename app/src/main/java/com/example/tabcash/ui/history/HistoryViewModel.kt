@@ -1,4 +1,4 @@
-package com.example.tabcash.ui.main.cashin
+package com.example.tabcash.ui.history
 
 import android.util.Log
 import androidx.databinding.ObservableField
@@ -20,34 +20,23 @@ import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
-class CashInViewModel @Inject constructor(val repository: Repository) :
+class HistoryViewModel @Inject constructor(val repository: Repository) :
     BaseViewModel<BaseNavigator>() {
 
-    val balance = ObservableField<String>()
     var token: String? = null
     var history = MutableLiveData<HistoryResponse>()
-
-    fun getbalnce(token: String?) {
-
+    fun getHistory(token: String?) {
         if (token != null) {
             viewModelScope.launch {
-                try {
-                    balance.set(token.let { repository.getBalance(it).data?.balance } ?: "")
-                    Log.e("balance", balance.get().toString())
+                history.postValue(repository.getHistory(token))
+            }
+            Log.e("response", (history.value?.data.toString()))
 
-                } catch (e: HttpException) {
 
-                    navigator?.hideLoading()
-                    navigator?.showMessage("Token is expired")
-
-                } catch (e: Exception) {
-                    e.localizedMessage?.let { Log.e("erorr", it) }
-                    navigator?.hideLoading()
-                    e.localizedMessage?.let { navigator?.showMessage(it.toString()) }
-
-                }
-            }}}}
+        }
+    }
 //
 //    init {
 //        getHistory(token)
 //    }
+}

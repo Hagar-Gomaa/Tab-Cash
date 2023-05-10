@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.example.herohub.ui.base.BaseFragment
 import com.example.tabcash.R
 import com.example.tabcash.databinding.FragmentCashInBinding
 import com.example.tabcash.databinding.FragmentHistoryBinding
-import com.example.tabcash.ui.main.cashin.CashInViewModel
-import com.example.tabcash.ui.main.history.HistoryViewModel
+import com.example.tabcash.ui.cashin.CashInViewModel
 import com.example.tabcash.utils.MySharedPreferences
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class CashInFragment : BaseFragment<FragmentCashInBinding>() {
     override val TAG: String
     get() ="HomeFragment"
@@ -23,12 +25,14 @@ class CashInFragment : BaseFragment<FragmentCashInBinding>() {
     private val mySharedPreferences : MySharedPreferences by lazy {
         MySharedPreferences(requireContext())
     }
-
     private val viewModel: CashInViewModel by viewModels()
     var history :String?=null
     override fun setup() {
-        viewModel.getbalnce(mySharedPreferences.getToken().toString())
-
+        binding.vm=viewModel
+         log(mySharedPreferences.getToken().toString())
+            viewModel.getbalnce(mySharedPreferences.getToken())
+            log(mySharedPreferences.getToken().toString())
+            log(mySharedPreferences.getBalance().toString())
 
     }
 }

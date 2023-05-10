@@ -16,7 +16,7 @@ interface Repository {
     suspend fun getBalance(accessToken: String): BalanceResponse
     suspend fun getHistory(accessToken: String): HistoryResponse
 
-    suspend fun deposite(accessToken: String ,amount:String): DepositeResponse
+    suspend fun deposite(accessToken: String ,amount:Int): DepositeResponse
 
 
 //    suspend fun getTransactions(): HistoryResponse

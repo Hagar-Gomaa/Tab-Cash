@@ -13,7 +13,7 @@ interface RemoteDataSource {
     suspend fun login(loginRequestBody: LoginRequestBody): LoginResponse
     suspend fun register(registerBody:RegisterBody): RegisterResponse
     suspend fun getBalance(accessToken: String): BalanceResponse
-    suspend fun deposite(accessToken: String ,amount:String): DepositeResponse
+    suspend fun deposite(accessToken: String ,amount:Int): DepositeResponse
 
     suspend fun getHistory(ccessToken: String): HistoryResponse
 
