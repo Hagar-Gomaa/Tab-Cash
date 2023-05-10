@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 <variable
     name="vm"
-    type="com.example.tabcash.ui.main.history.HistoryViewModel" />
+    type="com.example.tabcash.ui.history.HistoryViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.history.HistoryFragment">
+        tools:context=".ui.history.HistoryFragment">
 
         <!-- TODO: Update blank fragment layout -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="ggggggggggggg"
-           />
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_history"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          tools:listitem="@layout/item_history"
+          />
 
     </FrameLayout>
 </layout>

@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.tabcash.ui.main.home.HomeFragment"
-        android:label="fragment_home"
+        android:name="com.example.tabcash.ui.home.HomeFragment"
+        android:label="Home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_transactionFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/cardsFragment"
         android:name="com.example.tabcash.ui.main.home.CardsFragment"
-        android:label="CardsFragment"
+        android:label="Cards"
         tools:layout="@layout/fragment_cards">
         <action
             android:id="@+id/action_cardsFragment_to_transactionFragment"
@@ -25,8 +25,8 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.tabcash.ui.main.history.HistoryFragment"
-        android:label="HistoryFragment"
+        android:name="com.example.tabcash.ui.history.HistoryFragment"
+        android:label="History"
         tools:layout="@layout/fragment_history">
         <action
             android:id="@+id/action_historyFragment_to_transactionFragment"
@@ -35,7 +35,7 @@
     <fragment
         android:id="@+id/kidsFragment"
         android:name="com.example.tabcash.ui.main.home.KidsFragment"
-        android:label="KidsFragment"
+        android:label="Kids"
         tools:layout="@layout/fragment_kids">
         <action
             android:id="@+id/action_kidsFragment_to_transactionFragment"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/transactionFragment"
         android:name="com.example.tabcash.ui.main.home.TransactionFragment"
-        android:label="TransactionFragment" >
+        android:label="Transaction" >
         <action
             android:id="@+id/action_transactionFragment_to_cashOutFragment"
             app:destination="@id/cashOutFragment" />
@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/cashInFragment"
         android:name="com.example.tabcash.ui.main.home.CashInFragment"
-        android:label="CashInFragment" >
+        android:label="Cash In" >
         <action
             android:id="@+id/action_cashInFragment_to_transactionFragment"
             app:destination="@id/transactionFragment" />
@@ -66,7 +66,7 @@
     <fragment
         android:id="@+id/cashOutFragment"
         android:name="com.example.tabcash.ui.main.home.CashOutFragment"
-        android:label="CashOutFragment" >
+        android:label="Cash Out" >
         <action
             android:id="@+id/action_cashOutFragment_to_transactionFragment"
             app:destination="@id/transactionFragment" />
@@ -74,7 +74,7 @@
     <fragment
         android:id="@+id/donationsFragment"
         android:name="com.example.tabcash.ui.main.home.DonationsFragment"
-        android:label="DonationsFragment" >
+        android:label="Donations" >
         <action
             android:id="@+id/action_donationsFragment_to_transactionFragment"
             app:destination="@id/transactionFragment" />

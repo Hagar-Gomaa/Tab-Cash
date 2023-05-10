@@ -1,4 +1,4 @@
-package com.example.tabcash.ui.main.home
+package com.example.tabcash.ui.home
 
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModel
 import com.example.herohub.ui.base.BaseFragment
 import com.example.tabcash.R
 import com.example.tabcash.databinding.FragmentHomeBinding
-import com.example.tabcash.ui.main.cashin.CashInViewModel
+import com.example.tabcash.ui.cashin.CashInViewModel
 import com.example.tabcash.utils.MySharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.log

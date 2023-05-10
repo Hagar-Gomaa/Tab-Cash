@@ -9,7 +9,7 @@ import com.example.tabcash.R
 import com.example.tabcash.databinding.ActivityRegisterBinding
 import com.example.tabcash.ui.base.BaseActivity
 import com.example.tabcash.ui.main.MainActivity
-import com.example.tabcash.ui.main.history.HistoryFragment
+import com.example.tabcash.ui.history.HistoryFragment
 import com.example.tabcash.ui.register.RegisterNavigator
 import com.example.tabcash.utils.MySharedPreferences
 import dagger.hilt.android.AndroidEntryPoint

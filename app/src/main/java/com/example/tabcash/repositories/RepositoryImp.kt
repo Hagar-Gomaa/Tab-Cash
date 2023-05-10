@@ -28,7 +28,7 @@ class RepositoryImp @Inject constructor(val remoteDataSource: RemoteDataSource):
         return remoteDataSource.getHistory("Bearer $accessToken")
     }
 
-    override suspend fun deposite(accessToken: String, amount: String): DepositeResponse {
+    override suspend fun deposite(accessToken: String, amount: Int): DepositeResponse {
         return remoteDataSource.deposite(accessToken,amount)
     }
 }

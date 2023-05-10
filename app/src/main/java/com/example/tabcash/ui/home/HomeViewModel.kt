@@ -1,4 +1,4 @@
-package com.example.tabcash.ui.main.home
+package com.example.tabcash.ui.home
 
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.viewModelScope

@@ -9,8 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Content of the screen goes here -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:outlineSpotShadowColor="@color/white">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="0dp">
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Bottom App Bar -->
         <include
-            android:id="@+id/content_main"
             layout="@layout/content_main"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,6 +44,7 @@
             android:layout_gravity="bottom"
             app:backgroundTint="#EFE5F4"
             app:fabCradleMargin="10dp"
+            app:subtitleTextColor="@color/purple_500"
             app:fabCradleVerticalOffset="16dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -52,34 +73,3 @@
             app:layout_anchorGravity="bottom" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
-
-
-
-    <!-- Content of the screen goes here -->
-    <!--        <com.google.android.material.appbar.AppBarLayout-->
-    <!--            android:id="@+id/app_bar"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            app:layout_constraintStart_toStartOf="parent"-->
-    <!--            app:layout_constraintTop_toTopOf="parent"-->
-    <!--            app:layout_constraintEnd_toEndOf="parent"-->
-    <!--            android:background="#00000000">-->
-
-    <!--            <androidx.appcompat.widget.Toolbar-->
-    <!--                android:id="@+id/toolbar"-->
-    <!--                android:layout_width="match_parent"-->
-    <!--                android:layout_height="wrap_content">-->
-
-    <!--                <com.google.android.material.imageview.ShapeableImageView-->
-    <!--                    android:id="@+id/ic_menu"-->
-    <!--                    android:layout_width="wrap_content"-->
-    <!--                    android:layout_height="wrap_content"-->
-    <!--                    android:layout_gravity="end"-->
-    <!--                    android:layout_marginEnd="@dimen/_16dp"-->
-    <!--                    app:srcCompat="@drawable/ic_menu" />-->
-
-
-    <!--            </androidx.appcompat.widget.Toolbar>-->
-    <!--        </com.google.android.material.appbar.AppBarLayout>-->
-
-    <!-- Bottom App Bar -->

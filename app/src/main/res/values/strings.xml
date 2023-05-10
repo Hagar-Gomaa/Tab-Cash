@@ -40,4 +40,5 @@
     <string name="phone">Phone Number</string>
     <string name="enter_amount">Enter an amount</string>
     <string name="send">Send</string>
+    <string name="total_balance">Total Balance</string>
 </resources>

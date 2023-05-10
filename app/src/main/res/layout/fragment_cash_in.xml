@@ -6,7 +6,7 @@
     <data>
 <variable
     name="vm"
-    type="com.example.tabcash.ui.main.cashin.CashInViewModel" />
+    type="com.example.tabcash.ui.cashin.CashInViewModel" />
     </data>
 
     <FrameLayout

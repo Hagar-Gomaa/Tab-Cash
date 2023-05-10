@@ -29,7 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel<*>>() {
     val transactionFragment: TransactionFragment = TransactionFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setSupportActionBar(findViewById(R.id.toolbar))
+       setSupportActionBar(findViewById(R.id.toolbar))
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_host) as NavHostFragment
         val navController = navHostFragment.navController
@@ -78,8 +78,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel<*>>() {
 
     private fun setupNavigation(navController: NavController) {
         viewBinding.bottomNavigationView.setupWithNavController(navController)
-       // NavigationUI.setupActionBarWithNavController(this, navController)
-//        setSupportActionBar(findViewById(R.id.toolbar))
+       NavigationUI.setupActionBarWithNavController(this, navController)
 
     }
 
@@ -92,9 +91,4 @@ class MainActivity : BaseActivity<ActivityMainBinding, BaseViewModel<*>>() {
 private fun navigate(navController: NavController, action: Int) {
     navController.navigate(action)
 }
-
-//override fun onResume() {
-//    super.onResume()
-//    setupNavigation()
-//}
 

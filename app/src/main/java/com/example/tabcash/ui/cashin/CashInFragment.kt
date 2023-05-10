@@ -10,7 +10,7 @@ import com.example.herohub.ui.base.BaseFragment
 import com.example.tabcash.R
 import com.example.tabcash.databinding.FragmentCashInBinding
 import com.example.tabcash.databinding.FragmentHistoryBinding
-import com.example.tabcash.ui.main.cashin.CashInViewModel
+import com.example.tabcash.ui.cashin.CashInViewModel
 import com.example.tabcash.utils.MySharedPreferences
 
 
@@ -26,6 +26,7 @@ class CashInFragment : BaseFragment<FragmentCashInBinding>() {
     private val viewModel: CashInViewModel by viewModels()
     var history :String?=null
     override fun setup() {
+        binding.vm=viewModel
         viewModel.getbalnce(mySharedPreferences.getToken().toString())
     }
 }
